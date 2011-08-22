@@ -12,11 +12,17 @@ public class Hello extends ActionSupport{
 	public String nameemail;
 	public MemberDao memberDao;
 	
+	@SuppressWarnings({ "unused" })
 	public String hello(){
 		memberDao.save(new Member(name, email));
+//		testbean te = new testbean();
+//		te.setName("test");
+//		ActionContext.getContext().getValueStack().push(te);
+//		ValueStack valueStack = ActionContext.getContext().getValueStack();
+//		String nameString = (String) ActionContext.getContext().getValueStack().findValue("name");
 		return "success";
 	}
-	
+	 
 	public MemberDao getMemberDao() {
 		return memberDao;
 	}
@@ -43,6 +49,24 @@ public class Hello extends ActionSupport{
 
 	public void setNameemail(String nameemail) {
 		this.nameemail = nameemail;
+	}
+	
+	/**
+	 * 测试ActionContext的bean
+	 * @author yerurui
+	 *
+	 */
+	class testbean{
+		public String name;
+
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+		
 	}
 	
 }
