@@ -5,8 +5,16 @@
       
 <struts>
 	<include file="struts-default.xml"/>
-	<package name="default"  extends="struts-default">		
+	<package name="default"  extends="struts-default">
+		<interceptors>
+			<interceptor name="changename" class="com.yerurui.start.interceptor.NameChangeInterceptor"></interceptor>
+			<interceptor-stack name="changenamestack">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="changename"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
 		<action name="hello" class="HelloAction" method="hello">
+			<interceptor-ref name="changenamestack"></interceptor-ref>
 			<result name="success" type="velocity">/hello.vm</result>
 			<result name="fail">/error.html</result>
 		</action>
