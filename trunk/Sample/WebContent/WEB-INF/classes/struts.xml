@@ -9,8 +9,13 @@
 		<interceptors>
 			<interceptor name="changename" class="com.yerurui.start.interceptor.NameChangeInterceptor"></interceptor>
 			<interceptor-stack name="changenamestack">
-				<interceptor-ref name="defaultStack"></interceptor-ref>
-				<interceptor-ref name="changename"></interceptor-ref>
+				<interceptor-ref name="exception"/>
+				<interceptor-ref name="changename"/>
+                <interceptor-ref name="servletConfig"/>
+                <interceptor-ref name="prepare"/>
+                <interceptor-ref name="checkbox"/>
+                <interceptor-ref name="params"/>
+                <interceptor-ref name="conversionError"/>
 			</interceptor-stack>
 		</interceptors>
 		<action name="hello" class="HelloAction" method="hello">

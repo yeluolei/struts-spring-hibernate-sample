@@ -12,7 +12,7 @@ public class Hello extends ActionSupport{
 	public String nameemail;
 	public MemberDao memberDao;
 	
-	@SuppressWarnings({ "unused" })
+	@SuppressWarnings({ })
 	public String hello(){
 		memberDao.save(new Member(name, email));
 //		testbean te = new testbean();
